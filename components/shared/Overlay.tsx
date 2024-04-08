@@ -1,5 +1,6 @@
 import { XCircleIcon } from "lucide-react";
 import React, { ReactNode } from "react";
+import { Button } from "../ui/button";
 
 type OverlayProps = {
   isOpen: boolean;
@@ -10,17 +11,18 @@ type OverlayProps = {
 const Overlay = ({ isOpen, onClose, children }: OverlayProps) => {
   return (
     <div
-      className={` fixed inset-0 flex items-center justify-center p-10 ${
+      className={`fixed inset-0 flex items-center justify-center p-10 ${
         isOpen ? "block" : "hidden"
-      } z-50 bg-gray-900/90`}
+      } z-50 bg-gray-900/20`}
     >
-      <div className="relative h-full w-full max-w-2xl overflow-hidden rounded-lg border-4 border-gray-200 bg-gray-900 p-4 pt-10 shadow-lg">
-        <button
+      <div className="relative h-full w-full max-w-2xl overflow-hidden rounded-lg border-4 border-gray-200 bg-blue-950 p-4 pt-10 shadow-lg">
+        <Button
+          variant={"ghost"}
           onClick={onClose}
-          className="absolute right-2 top-2 text-gray-300 hover:text-gray-100 focus:outline-none"
+          className="absolute right-2 top-2 text-gray-300 focus:outline-none"
         >
-          <XCircleIcon className="h-6 w-6" onClick={() => onClose} />
-        </button>
+          <XCircleIcon className="h-4 w-4" onClick={() => onClose} />
+        </Button>
         {children}
       </div>
     </div>
