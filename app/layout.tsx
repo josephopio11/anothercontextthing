@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/theme-provider";
+import { ModeToggle } from "@/components/shared/ThemeToggle";
+import Hero from "@/components/shared/Hero";
+import { SearchContextProvider } from "@/components/providers/search-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +20,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <body
+          className={`${inter.className} h-screen w-screen overflow-y-scroll`}
+        >
+          <SearchContextProvider>
+            <Hero />
+          </SearchContextProvider>
+          {children}
+          <ModeToggle />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
