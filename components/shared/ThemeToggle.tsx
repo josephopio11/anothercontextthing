@@ -15,7 +15,7 @@ export function ModeToggle() {
   const { setTheme } = useTheme();
 
   return (
-    <div className="relative">
+    <div className="relative z-[999999]">
       <div className="absolute bottom-5 right-5 z-10 s">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

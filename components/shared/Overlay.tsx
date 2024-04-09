@@ -15,7 +15,7 @@ const Overlay = ({ isOpen, onClose, children }: OverlayProps) => {
         isOpen ? "block" : "hidden"
       } z-50 bg-gray-900/20`}
     >
-      <div className="relative h-full w-full max-w-2xl overflow-hidden rounded-lg border-4 border-gray-200 bg-blue-950 p-4 pt-10 shadow-lg">
+      <div className="relative w-full max-w-2xl overflow-hidden rounded-lg border-4 border-gray-200 bg-white dark:bg-blue-950 p-4 pt-10 shadow-lg shadow-black transition-all duration-300">
         <Button
           variant={"ghost"}
           onClick={onClose}
